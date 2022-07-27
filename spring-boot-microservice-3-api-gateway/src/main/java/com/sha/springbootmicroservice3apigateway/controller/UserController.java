@@ -20,7 +20,7 @@ public class UserController {
     }
 
     @PutMapping("change/{role}")//api/user/change/{role}
-    public ResponseEntity<?> changeRole(@AuthenticationPrincipal UserPrincipal userPrincipal, @PathVariable Role role) {
+    public ResponseEntity<Boolean> changeRole(@AuthenticationPrincipal UserPrincipal userPrincipal, @PathVariable Role role) {
         userService.changeRole(role, userPrincipal.getUsername());
         return ResponseEntity.ok(true);
     }

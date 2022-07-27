@@ -5,6 +5,8 @@ import com.sha.springbootmicroservice1course.service.CourseService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.OK;
 
@@ -19,7 +21,7 @@ public class CourseController {
     }
 
     @PostMapping //api/course
-    public ResponseEntity<?> saveCourse(@RequestBody Course course) {
+    public ResponseEntity<Course> saveCourse(@RequestBody Course course) {
         return new ResponseEntity<>(courseService.saveCourse(course), CREATED);
     }
 
@@ -30,7 +32,7 @@ public class CourseController {
     }
 
     @GetMapping //api/course
-    public ResponseEntity<?> getAllCourses() {
+    public ResponseEntity<List<Course>> getAllCourses() {
         return ResponseEntity.ok(courseService.findAllCourses());
     }
 }

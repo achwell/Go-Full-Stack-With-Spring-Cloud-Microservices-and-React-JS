@@ -1,5 +1,5 @@
 import { CLEAR_CURRENT_USER, SET_CURRENT_USER } from '../types'
-import IUser from "../../models/interfaces/IUser";
+import IUser from "../../models/interfaces/IUser"
 
 interface ActionType {
     type: string

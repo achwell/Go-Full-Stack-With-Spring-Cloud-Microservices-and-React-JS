@@ -5,6 +5,8 @@ import com.sha.springbootmicroservice2purchase.service.PurchaseService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 import static org.springframework.http.HttpStatus.CREATED;
 
 @RestController
@@ -17,12 +19,12 @@ public class PurchaseController {
     }
 
     @PostMapping //api/purchase
-    public ResponseEntity<?> savePurchase(@RequestBody Purchase purchase) {
+    public ResponseEntity<Purchase> savePurchase(@RequestBody Purchase purchase) {
         return new ResponseEntity<>(purchaseService.savePurchase(purchase), CREATED);
     }
 
     @GetMapping("{userId}")//api/purchase/{userId}
-    public ResponseEntity<?> getAllPurchasesOfUser(@PathVariable Long userId) {
+    public ResponseEntity<List<Purchase>> getAllPurchasesOfUser(@PathVariable Long userId) {
         return ResponseEntity.ok(purchaseService.findAllPurchasesOfUser(userId));
     }
 }
