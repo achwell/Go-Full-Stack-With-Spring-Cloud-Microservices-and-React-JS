@@ -1,17 +1,17 @@
 import { BASE_API_URL } from '../common/Constants'
-import axios from 'axios'
-import IUser from "../models/interfaces/IUser";
+import axios, {AxiosResponse} from 'axios'
+import IUser from "../models/interfaces/IUser"
 
 const BASE_URL = BASE_API_URL + '/api/authentication'
 
 class AuthenticationService {
 
-    login(user: IUser) {
-        return axios.post(BASE_URL + '/sign-in', user)
+    login(user: IUser): Promise<AxiosResponse<IUser>> {
+        return axios.post<IUser>(BASE_URL + '/sign-in', user)
     }
 
-    register(user: IUser) {
-        return axios.post(BASE_URL + '/sign-up', user)
+    register(user: IUser): Promise<AxiosResponse<IUser>> {
+        return axios.post<IUser>(BASE_URL + '/sign-up', user)
     }
 
 }

@@ -24,7 +24,7 @@ public class AuthenticationController {
     }
 
     @PostMapping("sign-up")//api/authentication/sign-up
-    public ResponseEntity<?> signUp(@RequestBody User user) {
+    public ResponseEntity<User> signUp(@RequestBody User user) {
         if (userService.findByUsername(user.getUsername()).isPresent()) {
             return new ResponseEntity<>(CONFLICT);
         }
@@ -32,7 +32,7 @@ public class AuthenticationController {
     }
 
     @PostMapping("sign-in")//api/authentication/sign-in
-    public ResponseEntity<?> signIn(@RequestBody User user) {
+    public ResponseEntity<User> signIn(@RequestBody User user) {
         return new ResponseEntity<>(authenticationService.signInAndReturnJWT(user), OK);
     }
 }

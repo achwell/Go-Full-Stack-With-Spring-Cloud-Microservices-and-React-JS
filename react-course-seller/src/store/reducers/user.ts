@@ -17,7 +17,7 @@ const userReducer = (state = {}, action: ActionType) => {
         default:
             let currentUser = localStorage.getItem('currentUser')
             if (!currentUser) {
-                return undefined
+                return null
             }
             return JSON.parse(currentUser)
     }

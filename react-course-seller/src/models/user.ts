@@ -7,9 +7,9 @@ export default class User implements iUser {
     name: string
     role: string
     token: string
-    id: string
+    id: number
 
-    constructor(username: string, password: string, name: string, role: string, token: string, id: string) {
+    constructor(username: string, password: string, name: string, role: string, token: string, id: number) {
         this.username = username
         this.password = password
         this.name = name
