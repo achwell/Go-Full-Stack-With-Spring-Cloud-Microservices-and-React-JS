@@ -59,7 +59,7 @@ const NavBar = () => {
                 <div className="navbar-nav ms-auto">
                     <li className="nav-item">
                         <NavLink to="/profile" className="nav-link">
-                            Navn
+                            {currentUser.name}
                         </NavLink>
                     </li>
                     <li className="nav-item">

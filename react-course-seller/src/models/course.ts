@@ -3,12 +3,12 @@ import ICourse from "./interfaces/ICource";
 export default class Course implements ICourse {
 
     createTime: Date
-    id: string
+    id: number
     price: number
     subtitle: string
     title: string
 
-    constructor(title: string, subtitle: string, price: number, createTime: Date, id: string) {
+    constructor(title: string, subtitle: string, price: number, createTime: Date, id: number) {
         this.title = title
         this.subtitle = subtitle
         this.price = price

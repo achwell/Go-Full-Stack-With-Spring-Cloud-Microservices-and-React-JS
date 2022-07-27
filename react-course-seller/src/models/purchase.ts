@@ -2,14 +2,14 @@ import IPurchase from "./interfaces/IPurchase"
 
 export default class Purchase implements IPurchase {
 
-    courseId: string
-    id: string
+    courseId: number
+    id: number
     price: number
     purchaseTime: Date
     title: string
-    userId: string
+    userId: number
 
-    constructor(userId: string, courseId: string, title: string, price: number, purchaseTime: Date, id: string) {
+    constructor(userId: number, courseId: number, title: string, price: number, purchaseTime: Date, id: number) {
         this.userId = userId
         this.courseId = courseId
         this.title = title

@@ -3,5 +3,5 @@ export default interface ICourse {
     subtitle: string
     price: number
     createTime: Date
-    id: string
+    id: number
 }

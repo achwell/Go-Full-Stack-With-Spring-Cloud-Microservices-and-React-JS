@@ -2,7 +2,7 @@ import axios from 'axios'
 import store from '../store'
 import { clearCurrentUser } from '../store/actions/user'
 import IUser from "../models/interfaces/IUser"
-import {useNavigate} from "react-router-dom";
+import { history } from '../common/history'
 
 //equal to function authHeader()
 export const authHeader = () => {
@@ -18,12 +18,12 @@ export function handleResponseWithLoginCheck() {
         response => response,
         error => {
             const currentUser: IUser = store.getState().user;
-            const isLoggedIn = currentUser?.token
+            const isLoggedIn = !!currentUser?.token
             const status = error?.response?.status
 
             if (isLoggedIn && [401, 403].includes(status)) {
                 store.dispatch(clearCurrentUser())
-                useNavigate()('/login')
+                history.push('/login')
             }
             return Promise.reject(error)
         }

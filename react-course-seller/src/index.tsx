@@ -4,12 +4,16 @@ import {Provider} from "react-redux"
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import store from "./store"
+import {handleResponseWithLoginCheck} from "./services/base.service"
 import "bootstrap/dist/css/bootstrap.min.css"
 import './index.css'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
-);
+)
+
+handleResponseWithLoginCheck()
+
 root.render(
   <React.StrictMode>
       <Provider store={store}>
